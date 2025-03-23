@@ -2,6 +2,7 @@ version: "3"
 services:
   frontend:
     image: plone/plone-frontend:latest
+    restart: always
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
     ports:
@@ -11,6 +12,7 @@ services:
 
   backend:
     image: plone/plone-backend:latest
+    restart: always
     environment:
       SITE: Plone
       ZEO_ADDRESS: db:8100
