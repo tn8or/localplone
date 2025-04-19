@@ -9,6 +9,8 @@ services:
       - "23000:3000"
     depends_on:
       - backend
+    networks:
+      - servicenet
 
   backend:
     image: plone/plone-backend:latest
@@ -20,6 +22,8 @@ services:
       - "28080:8080"
     depends_on:
       - db
+    networks:
+      - servicenet
 
   db:
     image: plone/plone-zeo:latest
@@ -28,6 +32,11 @@ services:
       - data:/data
     ports:
       - "8100:8100"
+    networks:
+      - servicenet
 
 volumes:
   data: {}
+networks:
+  servicenet:
+    external: true
