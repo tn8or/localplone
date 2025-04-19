@@ -12,6 +12,11 @@ services:
       - backend
     networks:
       - servicenet
+    deploy:
+      placement:
+        constraints:
+          - node.labels.corebox == true
+
 
   backend:
     image: plone/plone-backend:latest
@@ -25,6 +30,10 @@ services:
       - db
     networks:
       - servicenet
+    deploy:
+      placement:
+        constraints:
+          - node.labels.corebox == true
 
   db:
     image: plone/plone-zeo:latest
@@ -35,6 +44,10 @@ services:
       - "8100:8100"
     networks:
       - servicenet
+    deploy:
+      placement:
+        constraints:
+          - node.labels.corebox == true
 
 volumes:
   data: 
