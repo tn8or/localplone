@@ -3,6 +3,7 @@ services:
   frontend:
     image: plone/plone-frontend:latest
     restart: always
+    hostname: plone-frontend
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
     ports:
