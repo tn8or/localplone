@@ -17,7 +17,6 @@ services:
         constraints:
           - node.labels.corebox == true
 
-
   backend:
     image: plone/plone-backend:latest
     restart: always
@@ -50,12 +49,10 @@ services:
           - node.labels.corebox == true
 
 volumes:
-  data: {}
-# from https://6.docs.plone.org/install/containers/examples/nginx-volto-plone-zeo.html
-  data: 
+  data:
     external: true
 
 networks:
   servicenet:
     external: true
->>>>>>> 4be8a248ef4df7a8a19c072524a135f7d7cfc693
+# from https://6.docs.plone.org/install/containers/examples/nginx-volto-plone-zeo.html
