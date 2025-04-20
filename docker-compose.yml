@@ -26,6 +26,7 @@ services:
   backend:
     image: plone/plone-backend:latest
     restart: always
+    hostname: plone-backend
     environment:
       SITE: Plone
       ZEO_ADDRESS: db:8100
