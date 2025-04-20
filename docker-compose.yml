@@ -25,6 +25,8 @@ services:
     environment:
       SITE: Plone
       ZEO_ADDRESS: db:8100
+      PROFILES: plone.volto:default-homepage
+
     ports:
       - "28080:8080"
     depends_on:
