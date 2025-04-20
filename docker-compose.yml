@@ -3,12 +3,20 @@ services:
   frontend:
     image: ghcr.io/kitconcept/voltolighttheme-frontend:latest
     restart: always
+    hostname: plone-frontend
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
     ports:
       - "23000:3000"
     depends_on:
       - backend
+    networks:
+      - servicenet
+    deploy:
+      placement:
+        constraints:
+          - node.labels.corebox == true
+
 
   backend:
     image: plone/plone-backend:latest
@@ -20,6 +28,12 @@ services:
       - "28080:8080"
     depends_on:
       - db
+    networks:
+      - servicenet
+    deploy:
+      placement:
+        constraints:
+          - node.labels.corebox == true
 
   db:
     image: plone/plone-zeo:latest
@@ -28,7 +42,20 @@ services:
       - data:/data
     ports:
       - "8100:8100"
+    networks:
+      - servicenet
+    deploy:
+      placement:
+        constraints:
+          - node.labels.corebox == true
 
 volumes:
   data: {}
 # from https://6.docs.plone.org/install/containers/examples/nginx-volto-plone-zeo.html
+  data: 
+    external: true
+
+networks:
+  servicenet:
+    external: true
+>>>>>>> 4be8a248ef4df7a8a19c072524a135f7d7cfc693
