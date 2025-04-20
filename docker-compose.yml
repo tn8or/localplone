@@ -6,7 +6,7 @@ services:
     hostname: plone-frontend
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
-      RAZZLE_API_PATH: https://tommyeriksen.dk/++api++
+      #RAZZLE_API_PATH: https://tommyeriksen.dk/++api++
       #ADDONS: volto-site-settings
     ports:
       - "23000:3000"
