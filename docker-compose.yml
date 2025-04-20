@@ -1,7 +1,7 @@
 version: "3"
 services:
   frontend:
-    image: ghcr.io/kitconcept/voltolighttheme-frontend:latest
+    image: plone/plone-frontend:latest
     restart: always
     hostname: plone-frontend
     environment:
