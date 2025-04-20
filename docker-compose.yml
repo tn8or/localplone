@@ -16,6 +16,9 @@ services:
       - servicenet
     deploy:
       replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
       placement:
         constraints:
           - node.labels.corebox == true
@@ -36,6 +39,9 @@ services:
       - servicenet
     deploy:
       replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
       placement:
         constraints:
           - node.labels.corebox == true
