@@ -43,7 +43,7 @@ services:
     image: plone/plone-zeo:latest
     restart: always
     volumes:
-      - data:/data
+      - plonedata:/data
     ports:
       - "8100:8100"
     networks:
@@ -54,8 +54,11 @@ services:
           - node.labels.corebox == true
 
 volumes:
-  data:
-    external: true
+  plonedata:
+    driver_opts:
+      type: "nfs"
+      o: "addr=192.168.50.2,nfsvers=4,rw"
+      device: ":/storpool/kubenfs/plone"
 
 networks:
   servicenet:
