@@ -1,7 +1,7 @@
 version: "3"
 services:
   frontend:
-    image: plone/plone-frontend:latest
+    image: ghcr.io/kitconcept/voltolighttheme-frontend:latest
     restart: always
     hostname: plone-frontend
     environment:
@@ -13,6 +13,7 @@ services:
     networks:
       - servicenet
     deploy:
+      replicas: 2
       placement:
         constraints:
           - node.labels.corebox == true
@@ -30,6 +31,7 @@ services:
     networks:
       - servicenet
     deploy:
+      replicas: 2
       placement:
         constraints:
           - node.labels.corebox == true
