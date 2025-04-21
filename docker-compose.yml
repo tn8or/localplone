@@ -7,7 +7,7 @@ services:
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
       #RAZZLE_API_PATH: https://tommyeriksen.dk/++api++
-      ADDONS: "@eeacms/volto-industry-theme"
+      ADDONS: volto-industry-theme
     ports:
       - "23000:3000"
     depends_on:
