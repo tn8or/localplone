@@ -1,13 +1,13 @@
 version: "3"
 services:
   frontend:
-    image: plone/plone-frontend:latest
+    image: ghcr.io/kitconcept/voltolighttheme-frontend:latest
     restart: always
     hostname: plone-frontend
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
-      #RAZZLE_API_PATH: https://tommyeriksen.dk/++api++
-      ADDONS: volto-industry-theme
+      RAZZLE_API_PATH: https://tommyeriksen.dk/
+      #ADDONS: volto-industry-theme
     ports:
       - "23000:3000"
     depends_on:
