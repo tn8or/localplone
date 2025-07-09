@@ -12,8 +12,6 @@ services:
       - "23000:3000"
     depends_on:
       - backend
-    networks:
-      - servicenet
     deploy:
       replicas: 2
       update_config:
@@ -37,8 +35,6 @@ services:
       - "28080:8080"
     depends_on:
       - db
-    networks:
-      - servicenet
     deploy:
       replicas: 2
       update_config:
@@ -55,8 +51,6 @@ services:
       - plonedata:/data
     ports:
       - "8100:8100"
-    networks:
-      - servicenet
     deploy:
       placement:
         constraints:
