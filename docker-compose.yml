@@ -64,11 +64,8 @@ services:
 
 volumes:
   plonedata:
-    driver_opts:
-      type: "nfs"
-      o: "addr=192.168.50.2,nfsvers=4,rw"
-      device: ":/mnt/storage/kubenfs/plone"
-
+    external: true
+    
 networks:
   servicenet:
     external: true
