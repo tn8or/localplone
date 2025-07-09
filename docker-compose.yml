@@ -67,7 +67,7 @@ volumes:
     driver_opts:
       type: "nfs"
       o: "addr=192.168.50.2,nfsvers=4,rw"
-      device: ":/storpool/kubenfs/plone"
+      device: ":/mnt/storage/kubenfs/plone"
 
 networks:
   servicenet:
