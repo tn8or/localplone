@@ -4,6 +4,8 @@ services:
     image: ghcr.io/kitconcept/voltolighttheme-frontend:latest
     restart: always
     hostname: plone-frontend
+    ports:
+      - 38282:3000
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
       #RAZZLE_API_PATH: https://tommyeriksen.dk/
